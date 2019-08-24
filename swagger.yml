@@ -1,0 +1,80 @@
+swagger: '2.0'
+info:
+  title: Individual Joke Teller API
+  version: 1.0.0
+  description: Tell's joke for individual
+x-servers:
+  - url: https://localhost:500/person-joke
+    description: Local API Gateway (https)
+schemes:
+  - http
+basePath: /
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /:
+    x-swagger-router-controller: IndividualJoke
+    get:    
+      summary: Display joke for random person
+      description: >-
+        Returns joke for individual person.
+      operationId: listJoke
+      responses:
+        '200':
+          description: Returns requested Entities.
+          schema:
+            $ref: '#/definitions/IndividualWithJoke'
+definitions:
+  IndividualWithJoke:
+    type: object
+    allOf:
+      - $ref: '#/definitions/Individual'
+    properties:
+     joke:
+      $ref: '#/definitions/Joke'
+  Individual:
+    type: object
+    properties:
+      name:
+        type: string
+        x-omitempty: true
+      surname:
+        type: string
+        x-omitempty: true
+      gender:
+        type: string
+        x-omitempty: true
+        enum:
+        - Male
+        - Female
+        - Transgender
+        - N/A
+      Region:
+        type: string
+        x-omitempty: true
+      joke:
+        $ref: '#/definitions/Joke'
+  Joke:
+    type: object
+    properties:
+      type:
+        type: string
+        x-omitempty: true
+      value:
+        $ref: '#/definitions/JokeDetail'
+  JokeDetail:
+    type: object
+    properties:
+      id:
+        type: integer
+        x-omitempty: true
+      joke:
+        type: string
+        x-omitempty: true
+      category:
+        type: array
+        items:
+          type: string
+      
