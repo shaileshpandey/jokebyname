@@ -1,6 +1,10 @@
 package entities
 
-import "github.com/shaileshpandey/jokebyname/helper"
+import (
+	"strings"
+
+	"github.com/shaileshpandey/jokebyname/helper"
+)
 
 // Individual struct will keep information about individual person
 type Individual struct {
@@ -12,5 +16,8 @@ type Individual struct {
 
 // Self will populate itself from JSON
 func (person *Individual) self(url string) error {
+	if strings.TrimSpace(url) == "" {
+		panic("Unable to fetch random person")
+	}
 	return helper.JSONToStruct(url, person)
 }
