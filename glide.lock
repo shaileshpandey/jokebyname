@@ -1,5 +1,5 @@
-hash: e3221eea8fa7e80e609d1c059c30f8936026e9d331cc2d93ed28b69aa039f43e
-updated: 2019-08-23T20:30:49.441286-06:00
+hash: e04e7d6736950f450509a9fab371170abda3e4282c592ad6316d069a859a2e98
+updated: 2019-08-26T20:07:48.234377-06:00
 imports:
 - name: github.com/asaskevich/govalidator
   version: 7d2e70ef918f16bd6455529af38304d6d025c952
@@ -50,7 +50,7 @@ imports:
 - name: github.com/PuerkitoBio/urlesc
   version: de5bf2ad457846296e2031421a34e2568e304e35
 - name: go.mongodb.org/mongo-driver
-  version: d7f21ac57c73b88392e0ada3d3bf4b3563ef358e
+  version: d7f1b555adc0a0cec08114e1ac157d2342bb8c4c
   subpackages:
   - bson
   - bson/bsoncodec
@@ -73,4 +73,23 @@ imports:
   - width
 - name: gopkg.in/yaml.v2
   version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
-testImports: []
+testImports:
+- name: github.com/gopherjs/gopherjs
+  version: 296de816d4fe28b61803072c3f89360e9d1823ff
+  subpackages:
+  - js
+- name: github.com/jtolds/gls
+  version: 77f18212c9c7edc9bd6a33d383a7b545ce62f064
+- name: github.com/smartystreets/assertions
+  version: 0b37b35ec7434b77e77a4bb29b79677cced992ea
+  subpackages:
+  - internal/go-render/render
+  - internal/oglematchers
+- name: github.com/smartystreets/goconvey
+  version: e5b2b7c9111590d019a696c7800593f666e1a7f4
+  subpackages:
+  - convey
+  - convey/gotest
+  - convey/reporting
+- name: gopkg.in/jarcoal/httpmock.v1
+  version: cf52904a3cf0f78f199ecade6a6df8e245d5b25a

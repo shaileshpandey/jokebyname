@@ -1,25 +1,24 @@
 package: github.com/shaileshpandey/jokebyname
 import:
 - package: github.com/go-openapi/errors
-  version: ~0.19.2
 - package: github.com/go-openapi/loads
-  version: ~0.19.2
 - package: github.com/go-openapi/runtime
-  version: ~0.19.4
   subpackages:
   - flagext
   - middleware
   - security
 - package: github.com/go-openapi/spec
-  version: ~0.19.2
 - package: github.com/go-openapi/strfmt
-  version: ~0.19.2
 - package: github.com/go-openapi/swag
-  version: ~0.19.5
 - package: github.com/go-openapi/validate
-  version: ~0.19.2
 - package: github.com/jessevdk/go-flags
-  version: ~1.4.0
 - package: golang.org/x/net
   subpackages:
   - netutil
+testImport:
+- package: github.com/smartystreets/goconvey
+  subpackages:
+  - convey
+- package: gopkg.in/jarcoal/httpmock.v1
+testImport:
+- package: github.com/smartystreets/goconvey

@@ -1,6 +1,11 @@
 package entities
 
 import (
+	"fmt"
+	"log"
+	netUrl "net/url"
+	"strings"
+
 	"github.com/shaileshpandey/jokebyname/helper"
 )
 
@@ -19,5 +24,15 @@ type JokeDetail struct {
 
 // Self will populate itself from JSON
 func (joke *Joke) self(url string) error {
+
+	fmt.Println(url)
+	if strings.TrimSpace(url) == "" {
+		log.Panic("Unable to fetch random joke")
+	}
+
+	_, err := netUrl.Parse(url)
+	if err != nil {
+		log.Panic("inavlid Url passed to fetch joke")
+	}
 	return helper.JSONToStruct(url, joke)
 }

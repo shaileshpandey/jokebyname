@@ -1,7 +1,10 @@
 package entities
 
 import (
+	"log"
 	"strings"
+
+	netUrl "net/url"
 
 	"github.com/shaileshpandey/jokebyname/helper"
 )
@@ -17,7 +20,12 @@ type Individual struct {
 // Self will populate itself from JSON
 func (person *Individual) self(url string) error {
 	if strings.TrimSpace(url) == "" {
-		panic("Unable to fetch random person")
+		log.Panic("Unable to fetch random person")
+	}
+
+	_, err := netUrl.Parse(url)
+	if err != nil {
+		log.Panic("inavlid Url passed to fetch individual")
 	}
 	return helper.JSONToStruct(url, person)
 }
